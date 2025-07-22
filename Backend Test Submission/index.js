@@ -43,7 +43,7 @@ app.post('/shorturls', (req, res) => {
 
   urlDatabase.push(newUrlEntry);
 
-  const shortUrl = `http://localhost:${PORT}/${finalShortCode}`;
+  const shortUrl = `${req.protocol}://${req.get('host')}/${finalShortCode}`;
   
   res.status(201).json({ 
     shortLink: shortUrl,
